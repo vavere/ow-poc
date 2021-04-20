@@ -3,22 +3,12 @@ name: deploy
 
 steps:
 
-  - name: unit-test
-    image: node:10
+  - name: test
+    image: alpine:3.13
     commands:
       - node test/index.js
     when:
       branch: master
       event: push
 
-  - name: build-image
-    image: plugins/docker
-    settings:
-      repo: vavere/drone-demo
-      username: vavere
-      password:
-        from_secret: DOCKER_PASS
-      auto_tag: true
-    when:
-      event: tag
 
