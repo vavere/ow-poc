@@ -5,8 +5,16 @@ steps:
 
   - name: test
     image: alpine:3.13
+    environment:
+      terraform_version: 0.14.7
     commands:
-      - node test/index.js
+      - mkdir bin
+      - "export PATH=${'$'}PATH:${'$'}PWD/bin"
+      - curl --silent -O https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip
+      - unzip terraform_${terraform_version}_linux_amd64.zip
+      - chmod +x terraform
+      - mv terraform bin/
+      - terraform --version
     when:
       branch: master
       event: push
