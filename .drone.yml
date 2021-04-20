@@ -9,7 +9,7 @@ steps:
       terraform_version: 0.14.7
     commands:
       - mkdir bin
-      - "export PATH=${'$'}PATH:${'$'}PWD/bin"
+      - export PATH=$${PATH}:$${PWD}/bin
       - curl --silent -O https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip
       - unzip terraform_${terraform_version}_linux_amd64.zip
       - chmod +x terraform
