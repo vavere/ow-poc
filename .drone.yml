@@ -4,7 +4,7 @@ name: deploy
 
 steps:
   - name: Install dependencies
-    image: *alpine_image
+    image: alpine:3.13
     environment:
       terraform_version: 0.14.7
       # terragrunt_version:
