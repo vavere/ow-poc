@@ -3,7 +3,7 @@ name: deploy
 
 steps:
   - name: Install dependencies
-    image: alpine
+    image: alpine:3.13
     commands:
       - mkdir bin
       - export PATH=${'$'}PATH:${'$'}PWD/bin
