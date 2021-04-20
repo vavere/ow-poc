@@ -6,8 +6,8 @@ steps:
   - name: Install dependencies
     image: *alpine_image
     environment:
-      terraform_version:
-      terragrunt_version:
+      terraform_version: 0.14.7
+      # terragrunt_version:
     commands:
       - mkdir bin
       - "export PATH=${'$'}PATH:${'$'}PWD/bin"
